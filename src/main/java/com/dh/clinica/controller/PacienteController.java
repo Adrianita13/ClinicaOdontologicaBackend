@@ -50,7 +50,8 @@ public class PacienteController {
 
     @PutMapping()
     public ResponseEntity<PacienteDTO> actualizarPaciente(@RequestBody PacienteDTO paciente) throws BadRequestException {
-       PacienteDTO pacienteActualizado= pacienteService.actualizar(paciente);
+       if(paciente.getDomicilio() != null) paciente.getDomicilio().setPaciente(null);
+        PacienteDTO pacienteActualizado= pacienteService.actualizar(paciente);
        logger.debug("Se actualizó el paciente.");
        return ResponseEntity.ok(pacienteActualizado);
     }

@@ -22,14 +22,14 @@ public class TurnoService {
 
     final static Logger logger = Logger.getLogger(TurnoService.class);
 
-    public Turno guardar(TurnoDTO turno) throws BadRequestException {
+    public TurnoDTO guardar(TurnoDTO turno) throws BadRequestException {
         if(turno==null)
             throw new BadRequestException("Los datos para guardar un turno no son correctos");
         Turno turnoGuardado = mapper.convertValue(turno, Turno.class);
         logger.debug(turno.toString());
         logger.debug(turnoGuardado.toString());
-
-        return repository.save(turnoGuardado);
+        Turno turno1 = repository.save(turnoGuardado);
+        return mapper.convertValue(turno1, TurnoDTO.class);
 
     }
 

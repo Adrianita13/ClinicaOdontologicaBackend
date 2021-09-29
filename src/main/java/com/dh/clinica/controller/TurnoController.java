@@ -27,9 +27,9 @@ public class TurnoController {
     }
 
     @PostMapping()
-    public ResponseEntity<Turno> registrarTurno(@RequestBody TurnoDTO turno) throws BadRequestException {
+    public ResponseEntity<TurnoDTO> registrarTurno(@RequestBody TurnoDTO turno) throws BadRequestException {
         logger.debug(turno.toString());
-       Turno turnoPosteado = turnoService.guardar(turno);
+       TurnoDTO turnoPosteado = turnoService.guardar(turno);
        logger.debug(turnoPosteado);
         return ResponseEntity.ok(turnoPosteado);
     }
