@@ -28,8 +28,10 @@ public class PacienteController {
     }
 
     @PostMapping()
-    public ResponseEntity<Paciente> registrarPaciente(@RequestBody PacienteDTO paciente) throws BadRequestException {
-        Paciente pacientePosteado = pacienteService.guardar(paciente);
+    public ResponseEntity<PacienteDTO> registrarPaciente(@RequestBody PacienteDTO paciente) throws BadRequestException {
+
+        PacienteDTO pacientePosteado = pacienteService.guardar(paciente);
+
        return ResponseEntity.ok(pacientePosteado);
     }
 
@@ -38,7 +40,6 @@ public class PacienteController {
         pacienteService.borrar(id);
         logger.debug("Se ha borrado el paciente con id: " + id);
         return ResponseEntity.ok("Paciente eliminado");
-
     }
 
     @GetMapping()

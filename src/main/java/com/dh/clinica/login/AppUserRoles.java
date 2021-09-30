@@ -1,5 +1,5 @@
-//package com.dh.clinica.login;
-//
-//public enum AppUserRoles {
-//    ADMIN, USER;
-//}
+package com.dh.clinica.login;
+
+public enum AppUserRoles {
+    ADMIN, USER;
+}

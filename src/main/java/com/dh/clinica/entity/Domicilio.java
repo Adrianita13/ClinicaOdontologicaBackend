@@ -16,7 +16,7 @@ public class Domicilio {
 
     @Id
     @SequenceGenerator(name = "domicilio_sequence", sequenceName= "domicilio_sequence")
-    @GeneratedValue (strategy= GenerationType.SEQUENCE, generator = "sequence_generator")
+    @GeneratedValue (strategy= GenerationType.SEQUENCE, generator = "domicilio_generator")
     private Long id;
     @Column
     private String calle;
@@ -26,7 +26,7 @@ public class Domicilio {
     private String localidad;
     @Column
     private String provincia;
-    @JsonIdentityReference(alwaysAsId=true)
+//    @JsonIdentityReference(alwaysAsId=true)
     @OneToOne (mappedBy = "domicilio")
     private Paciente paciente;
 

@@ -11,6 +11,9 @@ public class OdontologoDTO implements Serializable {
 
 
     public OdontologoDTO(String nombre, String apellido, int matricula) {
+        this.apellido= apellido;
+        this.nombre= nombre;
+        this.matricula = matricula;
     }
 
     public String getNombre() {

@@ -23,12 +23,11 @@ public class PacienteService {
 
     final static Logger logger = Logger.getLogger(PacienteService.class);
 
-    public Paciente guardar(PacienteDTO paciente) throws BadRequestException {
+    public PacienteDTO guardar(PacienteDTO paciente) throws BadRequestException {
         if (paciente.getDni() == null || paciente.getApellido() == null || paciente.getNombre() == null)
             throw new BadRequestException("los datos para guardar el paciente no son correctos");
-        Paciente pacienteNuevo = mapper.convertValue(paciente, Paciente.class);
-        return repository.save(pacienteNuevo);
-
+        Paciente pacienteNuevo =repository.save(mapper.convertValue(paciente, Paciente.class));
+        return mapper.convertValue(pacienteNuevo, PacienteDTO.class);
     }
 
     public PacienteDTO buscarPorId(Long id) throws BadRequestException {
